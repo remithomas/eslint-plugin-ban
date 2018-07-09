@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-ban",
+  "version": "0.0.0",
+  "description": "Ban some methods",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Rémi THOMAS",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive",
+    "test:watch": "mocha tests --recursive --watch"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "~3.9.1",
+    "mocha": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
