@@ -1,6 +1,7 @@
 # eslint-plugin-ban
 
 > Currently in WIP
+
 Ban some methods and functions. Inspire by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
 
 ## Installation
@@ -37,7 +38,10 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "ban/rule-name": 2
+        "ban/ban": [
+            2,
+            {"name": "functionName", "message": "Prefer use functionName2"}
+        ]
     }
 }
 ```
