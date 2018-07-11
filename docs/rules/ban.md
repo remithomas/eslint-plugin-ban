@@ -1,36 +1,56 @@
 # Ban methods (ban)
 
-Please describe the origin of the rule here.
+Allows you to bannish some methods or functions.
 
 
 ## Rule Details
 
-This rule aims to...
+For example 
+
+```json
+[{
+  "name": "functionName",
+  "message": "my custom message because you use the function functionName"
+}]
+```
 
 Examples of **incorrect** code for this rule:
 
 ```js
-
-// fill me in
-
+var result = functionName('myString');
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-
-// fill me in
-
+var result = _functionName('myString');
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+Simple `function`
 
-## When Not To Use It
+```json
+[{
+  "name": "functionName",
+  "message": "my custom message because you use the function functionName"
+}]
+```
 
-Give a short description of when it would be appropriate to turn off this rule.
+`Method` on every kind of objects
 
-## Further Reading
+```json
+[{
+  "name": ["*", "functionName"],
+  "message": "my custom message because you use the function functionName"
+}]
+```
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+`Method` on object named `myObj`
+
+```json
+[{
+  "name": ["myObj", "functionName"],
+  "message": "my custom message because you use the function functionName"
+}]
+```

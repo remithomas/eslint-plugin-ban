@@ -43,7 +43,7 @@ ruleTester.run('ban with configuration for function (ban function `functionName`
             options: [{'name': 'functionName', 'message': 'Prefer use functionName2'}]
         },
         {
-            code: 'var functionName = \'hello\';',
+            code: 'var functionName = "hello";',
             options: [{'name': 'functionName', 'message': 'Prefer use functionName2'}]
         }
     ],
@@ -51,7 +51,7 @@ ruleTester.run('ban with configuration for function (ban function `functionName`
     invalid: [
         // Ban function
         {
-            code: 'functionName(\'fn\');',
+            code: 'functionName("fn");',
             errors: [{
                 message: 'Prefer use functionName2'
             }],
@@ -81,11 +81,11 @@ ruleTester.run('ban with configuration for method (ban method `push`)', rule, {
             options: [{'name': ['*', 'push'], 'message': 'Prefer use es6 spread'}]
         },
         {
-            code: 'var functionName = \'functionName\';',
+            code: 'var functionName = "functionName";',
             options: [{'name': ['*', 'push'], 'message': 'Prefer use es6 spread'}]
         },
         {
-            code: 'animals.push(\'cows\')',
+            code: 'animals.push("cows")',
             options: [{'name': ['humans', 'push'], 'message': 'Prefer use es6 spread'}]
         }
     ],
@@ -93,14 +93,14 @@ ruleTester.run('ban with configuration for method (ban method `push`)', rule, {
     invalid: [
         // Ban method
         {
-            code: 'animals.push(\'dogs\')',
+            code: 'animals.push("dogs")',
             errors: [{
                 message: 'Prefer use es6 spread'
             }],
             options: [{'name': ['*', 'push'], 'message': 'Prefer use es6 spread'}]
         },
         {
-            code: 'animals.push(\'cows\')',
+            code: 'animals.push("cows")',
             errors: [{
                 message: 'Prefer use es6 spread'
             }],
