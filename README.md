@@ -1,8 +1,6 @@
-# eslint-plugin-ban [![Build Status](https://travis-ci.org/remithomas/eslint-plugin-ban.svg?branch=master)](https://travis-ci.org/remithomas/eslint-plugin-ban)
+# eslint-plugin-ban [![Build Status](https://travis-ci.org/remithomas/eslint-plugin-ban.svg?branch=master)](https://travis-ci.org/remithomas/eslint-plugin-ban) [![npm version](https://img.shields.io/npm/v/eslint-plugin-ban.svg?style=flat-square)](https://www.npmjs.com/package/eslint-plugin-ban)
 
-> Currently in WIP
-
-Ban some methods and functions. Inspired by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
+> Allows you to bannish some methods or functions.. Inspired by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
 
 ## Installation
 
@@ -41,6 +39,30 @@ Then configure the rules you want to use under the rules section.
         "ban/ban": [
             2,
             {"name": "functionName", "message": "Prefer use functionName2"}
+        ]
+    }
+}
+```
+
+## Some examples
+
+```json
+{
+    "rules": {
+        "ban/ban": [
+            2,
+            {"name": ["*", "push"], "message": "Prefer use es6 spread like [...items, newItem]"}
+        ]
+    }
+}
+```
+
+```json
+{
+    "rules": {
+        "ban/ban": [
+            1,
+            {"name": "api", "message": "This function is deprecated, please use api.call()"}
         ]
     }
 }

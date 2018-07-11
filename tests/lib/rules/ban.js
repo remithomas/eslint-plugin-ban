@@ -9,9 +9,7 @@
 //------------------------------------------------------------------------------
 
 var rule = require('../../../lib/rules/ban'),
-
     RuleTester = require('eslint').RuleTester;
-
 
 //------------------------------------------------------------------------------
 // Tests
@@ -25,13 +23,16 @@ ruleTester.run('ban with default options', rule, {
         },
         {
             code: 'for(item in list) {}'
+        },
+        {
+            code: 'var functionName = "hello";'
         }
     ],
 
     invalid: []
 });
 
-ruleTester.run('ban with configuration for function (ban function `functionName`)', rule, {
+ruleTester.run('ban with configuration for function (example ban function `functionName`)', rule, {
     valid: [
         'foo()',
         {
@@ -69,11 +70,11 @@ ruleTester.run('ban with configuration for function (ban function `functionName`
     ]
 });
 
-ruleTester.run('ban with configuration for method (ban method `push`)', rule, {
+ruleTester.run('ban with configuration for method (example ban method `push`)', rule, {
     valid: [
         'value.bar()',
         {
-            code: '// comment',
+            code: '// comment something.push("here")',
             options: [{'name': ['*', 'push'], 'message': 'Prefer use es6 spread'}]
         },
         {
@@ -87,6 +88,10 @@ ruleTester.run('ban with configuration for method (ban method `push`)', rule, {
         {
             code: 'animals.push("cows")',
             options: [{'name': ['humans', 'push'], 'message': 'Prefer use es6 spread'}]
+        },
+        {
+            code: 'var myVar = push("cows")',
+            options: [{'name': ['*', 'push'], 'message': 'Prefer use es6 spread'}]
         }
     ],
 
