@@ -2,7 +2,7 @@
 
 > Currently in WIP
 
-Ban some methods and functions. Inspire by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
+Ban some methods and functions. Inspired by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
 
 ## Installation
 

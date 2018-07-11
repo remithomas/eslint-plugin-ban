@@ -5,7 +5,10 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "ban",
+    "function",
+    "method"
   ],
   "author": "Rémi THOMAS",
   "main": "lib/index.js",

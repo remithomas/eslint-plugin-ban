@@ -35,7 +35,7 @@ ruleTester.run("ban with configuration for function (ban function `functionName`
     valid: [
         "foo()",
         {
-            code: "// comment",
+            code: "// comment functionName()",
             options: [{"name": "functionName", "message": "Prefer use functionName2"}]
         },
         {
@@ -43,7 +43,7 @@ ruleTester.run("ban with configuration for function (ban function `functionName`
             options: [{"name": "functionName", "message": "Prefer use functionName2"}]
         },
         {
-            code: "var functionName = 'cows';",
+            code: "var functionName = 'hello';",
             options: [{"name": "functionName", "message": "Prefer use functionName2"}]
         }
     ],
@@ -51,7 +51,7 @@ ruleTester.run("ban with configuration for function (ban function `functionName`
     invalid: [
         // Ban function
         {
-            code: "functionName('cows');",
+            code: "functionName('fn');",
             errors: [{
                 message: "Prefer use functionName2"
             }],
@@ -59,7 +59,7 @@ ruleTester.run("ban with configuration for function (ban function `functionName`
         },
         {
             code: `
-                var result = functionName('cows');
+                var result = functionName('myString');
             `,
             errors: [{
                 message: "Prefer use functionName2"
@@ -74,30 +74,37 @@ ruleTester.run("ban with configuration for method (ban method `push`)", rule, {
         "value.bar()",
         {
             code: "// comment",
-            options: [{"name": "push", "message": "Prefer use es6 spread"}]
+            options: [{"name": ["*", "push"], "message": "Prefer use es6 spread"}]
         },
         {
             code: "for(item in list) {}",
-            options: [{"name": "functionName", "message": "Prefer use es6 spread"}]
+            options: [{"name": ["*", "push"], "message": "Prefer use es6 spread"}]
         },
         {
-            code: "var functionName = 'cows';",
-            errors: [{
-                message: "Prefer use es6 spread",
-                type: "Identifier"
-            }],
-            options: [{"name": "functionName", "message": "Prefer use es6 spread"}]
+            code: "var functionName = 'functionName';",
+            options: [{"name": ["*", "push"], "message": "Prefer use es6 spread"}]
+        },
+        {
+            code: "animals.push('cows')",
+            options: [{"name": ["humans", "push"], "message": "Prefer use es6 spread"}]
         }
     ],
 
     invalid: [
         // Ban method
-        // {
-        //     code: "animals.push('cows')",
-        //     errors: [{
-        //         message: "Prefer use forEach"
-        //     }],
-        //     options: [{"name": ["*", "push"], "message": "Prefer use forEach"}]
-        // }
+        {
+            code: "animals.push('dogs')",
+            errors: [{
+                message: "Prefer use es6 spread"
+            }],
+            options: [{"name": ["*", "push"], "message": "Prefer use es6 spread"}]
+        },
+        {
+            code: "animals.push('cows')",
+            errors: [{
+                message: "Prefer use es6 spread"
+            }],
+            options: [{"name": ["animals", "push"], "message": "Prefer use es6 spread"}]
+        }
     ]
 });
