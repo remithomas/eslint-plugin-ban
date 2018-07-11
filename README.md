@@ -1,4 +1,4 @@
-# eslint-plugin-ban
+# eslint-plugin-ban [![Build Status](https://travis-ci.org/remithomas/eslint-plugin-ban.svg?branch=master)](https://travis-ci.org/remithomas/eslint-plugin-ban)
 
 > Currently in WIP
 
