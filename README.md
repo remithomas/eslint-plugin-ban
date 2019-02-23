@@ -46,6 +46,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Some examples
 
+> An error
 ```json
 {
     "rules": {
@@ -57,6 +58,7 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
+> A simple warning
 ```json
 {
     "rules": {
@@ -67,3 +69,7 @@ Then configure the rules you want to use under the rules section.
     }
 }
 ```
+
+# Contributing
+
+Please feel free to submit, comment anything on this repo :)
