@@ -70,6 +70,24 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
+> Multiple errors
+```json
+{
+    "rules": {
+        "ban/ban": [
+            "error",
+            {"name": "api", "message": "This function is deprecated, please use api.call()"},
+            {"name": ["*", "push"], "message": "Prefer use es6 spread like [...items, newItem]"},
+            {"name": "functionName", "message": "Prefer use functionName2"}
+        ]
+    }
+}
+```
+
+# Todo
+
+- [ ] Possibility to add `error`and `warning` at same time
+
 # Contributing
 
 Please feel free to submit, comment anything on this repo :)
