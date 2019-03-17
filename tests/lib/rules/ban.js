@@ -113,3 +113,48 @@ ruleTester.run('ban with configuration for method (example ban method `push`)', 
         }
     ]
 });
+
+const multipleRuleOptions = [
+    {'name': ['animals', 'push'], 'message': 'don\'t push on animals'},
+    {'name': ['birds', 'push'], 'message': 'don\'t push on birds'},
+    {'name': 'functionName', 'message': 'Prefer use functionName2'}
+];
+
+ruleTester.run('ban with multiple rules', rule, {
+    valid: [
+        {
+            code: 'cars.push("dogs");',
+            options: multipleRuleOptions,
+        }
+    ],
+    invalid: [
+        {
+            code: 'animals.push("dogs");',
+            errors: [{
+                message: 'don\'t push on animals'
+            }],
+            options: multipleRuleOptions
+        },
+        {
+            code: 'birds.push("dogs");',
+            errors: [{
+                message: 'don\'t push on birds'
+            }],
+            options: multipleRuleOptions
+        },
+        {
+            code: 'functionName("dogs");',
+            errors: [{
+                message: 'Prefer use functionName2'
+            }],
+            options: multipleRuleOptions
+        },
+        {
+            code: 'functionName("dogs");',
+            errors: [{
+                message: 'Prefer use functionName2'
+            }],
+            options: multipleRuleOptions
+        },
+    ]
+});
