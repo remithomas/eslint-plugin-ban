@@ -2,6 +2,10 @@
   "name": "eslint-plugin-ban",
   "version": "1.2.0",
   "description": "Allows you to bannish some methods or functions.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remithomas/eslint-plugin-ban"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",
