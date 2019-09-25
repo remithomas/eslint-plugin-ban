@@ -158,3 +158,30 @@ ruleTester.run('ban with multiple rules', rule, {
         },
     ]
 });
+
+const singleLine = [{'name': ['it', 'only'], 'message': 'Don\'t use `it.only`'}];
+
+ruleTester.run('should ban single line', rule, {
+    valid: [
+        {
+            code: 'hello.it("dogs");',
+            options: singleLine,
+        }
+    ],
+    invalid: [
+        // Ban method
+        {
+            code: [
+                'it.only("does abc", function(){',
+                'my.only();',
+                '})'
+            ].join('\n'),
+            errors: [{
+                message: 'Don\'t use `it.only`',
+                line: 1,
+                endLine: 1,
+            }],
+            options: singleLine
+        },
+    ]
+});
