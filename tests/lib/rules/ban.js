@@ -110,6 +110,13 @@ ruleTester.run('ban with configuration for method (example ban method `push`)', 
                 message: 'Prefer use es6 spread'
             }],
             options: [{'name': ['animals', 'push'], 'message': 'Prefer use es6 spread'}]
+        },
+        {
+            code: 'this.target.removeEventListener()',
+            errors: [{
+                message: 'Use xx instead'
+            }],
+            options: [{'name': ['*', 'removeEventListener'], 'message': 'Use xx instead'}]
         }
     ]
 });
