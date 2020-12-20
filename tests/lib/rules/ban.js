@@ -201,6 +201,10 @@ ruleTester.run('ban with multiple rules', rule, {
       errors: [
         {
           message: 'Prefer use functionName2',
+          line: 1,
+          endLine: 1,
+          column: 1,
+          endColumn: 13,
         },
       ],
       options: multipleRuleOptions,
@@ -220,12 +224,19 @@ ruleTester.run('should ban single line', rule, {
   invalid: [
     // Ban method
     {
-      code: ['it.only("does abc", function(){', 'my.only();', '})'].join('\n'),
+      code: [
+        '// test',
+        'it.only("does abc", function(){',
+        'my.only();',
+        '})',
+      ].join('\n'),
       errors: [
         {
           message: "Don't use `it.only`",
-          line: 1,
-          endLine: 1,
+          line: 2,
+          endLine: 2,
+          column: 1,
+          endColumn: 8,
         },
       ],
       options: singleLine,
