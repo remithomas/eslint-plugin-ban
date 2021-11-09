@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ban",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "Allows you to bannish some methods or functions.",
   "repository": {
     "type": "git",
