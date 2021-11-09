@@ -24,63 +24,88 @@ Add `ban` to the plugins section of your `.eslintrc` configuration file. You can
 
 ```json
 {
-    "plugins": [
-        "ban"
-    ]
+  "plugins": ["ban"]
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "ban/ban": [
-            2,
-            {"name": "functionName", "message": "Prefer use functionName2"}
-        ]
-    }
+  "rules": {
+    "ban/ban": [
+      2,
+      { "name": "functionName", "message": "Prefer use functionName2" }
+    ]
+  }
 }
 ```
 
 ## Some examples
 
 > An error
+
 ```json
 {
-    "rules": {
-        "ban/ban": [
-            2,
-            {"name": ["*", "push"], "message": "Prefer use es6 spread like [...items, newItem]"}
-        ]
-    }
+  "rules": {
+    "ban/ban": [
+      2,
+      {
+        "name": ["*", "push"],
+        "message": "Prefer use es6 spread like [...items, newItem]"
+      }
+    ]
+  }
 }
 ```
 
 > A simple warning
+
 ```json
 {
-    "rules": {
-        "ban/ban": [
-            1,
-            {"name": "api", "message": "This function is deprecated, please use api.call()"}
-        ]
-    }
+  "rules": {
+    "ban/ban": [
+      1,
+      {
+        "name": "api",
+        "message": "This function is deprecated, please use api.call()"
+      }
+    ]
+  }
 }
 ```
 
 > Multiple errors
+
 ```json
 {
-    "rules": {
-        "ban/ban": [
-            "error",
-            {"name": "api", "message": "This function is deprecated, please use api.call()"},
-            {"name": ["*", "push"], "message": "Prefer use es6 spread like [...items, newItem]"},
-            {"name": "functionName", "message": "Prefer use functionName2"}
-        ]
-    }
+  "rules": {
+    "ban/ban": [
+      "error",
+      {
+        "name": "api",
+        "message": "This function is deprecated, please use api.call()"
+      },
+      {
+        "name": ["*", "push"],
+        "message": "Prefer use es6 spread like [...items, newItem]"
+      },
+      { "name": "functionName", "message": "Prefer use functionName2" }
+    ]
+  }
+}
+```
+
+> Widcard
+
+```json
+{
+  "rules": {
+    "ban/ban": [
+      2,
+      { "name": ["console", "*"], "message": "Please use our logger" }
+    ]
+  }
 }
 ```
 

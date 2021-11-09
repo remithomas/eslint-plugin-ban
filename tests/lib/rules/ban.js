@@ -243,3 +243,59 @@ ruleTester.run('should ban single line', rule, {
     },
   ],
 });
+
+// wildcard
+const wildcard = [
+  { name: ['console', '*'], message: 'Unexpected console statement' },
+];
+
+ruleTester.run('should ban using wildcard (end)', rule, {
+  valid: [
+    {
+      code: 'hello.it("dogs");',
+      options: wildcard,
+    },
+    {
+      code: 'log.console("dogs");',
+      options: wildcard,
+    },
+    {
+      code: 'console("dogs");',
+      options: wildcard,
+    },
+  ],
+  invalid: [
+    // Ban method
+    {
+      code: [
+        'console.log("bad usage");',
+        'console.warn("wrong usage")',
+        'console.error("oh no")',
+      ].join('\n'),
+      errors: [
+        {
+          message: 'Unexpected console statement',
+          line: 1,
+          endLine: 1,
+          column: 1,
+          endColumn: 12,
+        },
+        {
+          message: 'Unexpected console statement',
+          line: 2,
+          endLine: 2,
+          column: 1,
+          endColumn: 13,
+        },
+        {
+          message: 'Unexpected console statement',
+          line: 3,
+          endLine: 3,
+          column: 1,
+          endColumn: 14,
+        },
+      ],
+      options: wildcard,
+    },
+  ],
+});
