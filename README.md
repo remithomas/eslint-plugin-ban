@@ -1,6 +1,6 @@
 # eslint-plugin-ban [![Build Status](https://travis-ci.org/remithomas/eslint-plugin-ban.svg?branch=master)](https://travis-ci.org/remithomas/eslint-plugin-ban) [![npm version](https://img.shields.io/npm/v/eslint-plugin-ban.svg?style=flat-square)](https://www.npmjs.com/package/eslint-plugin-ban)
 
-> Allows you to bannish some methods or functions.. Inspired by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
+> Allows you to bannish some methods or functions. Inspired by [tslint ban rule](https://palantir.github.io/tslint/rules/ban/)
 
 ## Installation
 
@@ -19,6 +19,8 @@ $ npm install eslint-plugin-ban --save-dev
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-ban` globally.
 
 ## Usage
+
+### Legacy config
 
 Add `ban` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
@@ -39,6 +41,32 @@ Then configure the rules you want to use under the rules section.
     ]
   }
 }
+```
+
+### Flat config
+
+Import `ban` plugin in your `eslint.config.js` configuration file.
+
+```js
+import pluginBan from 'eslint-plugin-ban';
+```
+
+Then use plugin and configure the rules you want to use.
+
+```js
+export default [
+  // ...
+
+  {
+    plugins: { 'ban': pluginBan },
+    rules: {
+      'ban/ban': [
+        2,
+        { name: 'functionName', 'message': 'Prefer use functionName2' },
+      ],
+    },
+  },
+];
 ```
 
 ## Some examples
