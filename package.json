@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "eslint": "^8.2.0",
+    "eslint-9": "npm:eslint@^9.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "growl": "^1.10.5",
