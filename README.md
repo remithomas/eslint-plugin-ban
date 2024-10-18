@@ -16,7 +16,7 @@ Next, install `eslint-plugin-ban`:
 $ npm install eslint-plugin-ban --save-dev
 ```
 
-**Note 1:** Works with ESLint >= 9. For ESLint < 9, prefer using `eslint-plugin-ban` `1.x` (compatibility of newer versions not guaranteed)..
+**Note 1:** Works with ESLint >= 9. For ESLint < 9, prefer using `eslint-plugin-ban` `1.x` (compatibility of newer versions not guaranteed).
 
 **Note 2:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-ban` globally.
 
@@ -37,7 +37,7 @@ export default [
   // ...
 
   {
-    plugins: { 'ban': pluginBan },
+    plugins: { ban: pluginBan },
     rules: {
       'ban/ban': [
         2,
