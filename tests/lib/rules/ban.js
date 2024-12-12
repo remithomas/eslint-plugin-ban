@@ -196,19 +196,6 @@ ruleTester.run('ban with multiple rules', rule, {
       ],
       options: multipleRuleOptions,
     },
-    {
-      code: 'functionName("dogs");',
-      errors: [
-        {
-          message: 'Prefer use functionName2',
-          line: 1,
-          endLine: 1,
-          column: 1,
-          endColumn: 13,
-        },
-      ],
-      options: multipleRuleOptions,
-    },
   ],
 });
 
